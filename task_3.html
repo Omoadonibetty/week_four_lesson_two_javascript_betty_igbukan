@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #action-display {
+            margin-top: 20px;
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dog Actions</h1>
+
+    <div>
+        <button id="barkButton">Bark</button>
+        <button id="runButton">Run</button>
+        <button id="getAngryButton">Get Angry</button>
+        <button id="wiggleTailButton">Wiggle Tail</button>
+    </div>
+
+    <div id="action-display"></div>
+
+    <script>
+        class Dog {
+            constructor(breed, colour, size, tail) {
+                this.breed = breed;
+                this.colour = colour;
+                this.size = size;
+                this.tail = tail;
+            }
+
+            bark() {
+                return `${this.breed} is barking! Woof Woof!`;
+            }
+
+            walk() {
+                return `${this.breed} is walking.`;
+            }
+
+            run() {
+                return `${this.breed} is running fast!`;
+            }
+
+            wiggleTail() {
+                return `${this.breed} is wiggling its tail happily.`;
+            }
+
+            getAngry() {
+                return `${this.breed} is angry and growling! Grrr!`;
+            }
+        }
+
+        
+        const dog1 = new Dog("Spyro", "Golden", "Large", "Long");
+        const dog2 = new Dog("Poodle", "White", "Medium", "Curly");
+        const dog3 = new Dog("Bulldog", "Brown", "Medium", "Short");
+
+        
+        const barkButton = document.getElementById("barkButton");
+        const runButton = document.getElementById("runButton");
+        const getAngryButton = document.getElementById("getAngryButton");
+        const wiggleTailButton = document.getElementById("wiggleTailButton");
+        const actionDisplay = document.getElementById("action-display");
+
+        
+        let currentDog = dog1;
+
+        
+        barkButton.addEventListener("click", () => {
+            actionDisplay.textContent = currentDog.bark();
+        });
+
+        runButton.addEventListener("click", () => {
+            actionDisplay.textContent = currentDog.run();
+        });
+
+        getAngryButton.addEventListener("click", () => {
+            actionDisplay.textContent = currentDog.getAngry();
+        });
+
+        wiggleTailButton.addEventListener("click", () => {
+            actionDisplay.textContent = currentDog.wiggleTail();
+        });
+    </script>
+</body>
+</html>
